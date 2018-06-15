@@ -33,6 +33,7 @@ regexs:
         action: 0
         global: false
         nodes: Test1, Test2
+        perm: test.test
         commands:
         - c="say Yes %player?"
     global:
