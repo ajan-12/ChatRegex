@@ -59,6 +59,7 @@ public class ChatRegex extends JavaPlugin{
 			int cooldown = 0;
 			boolean isGlobal = true;
 			boolean isGlobalCooldown = true;
+			String permNode = "";
 			String addNode = "";
 			String node= "";
 
@@ -84,12 +85,18 @@ public class ChatRegex extends JavaPlugin{
 			else {
 				cooldown = getConfig().getInt("regexs." + string + ".cooldown");
 			}
-			
 			if(!getConfig().isSet("regexs." + string + ".global-cooldown")){
 				logger.log(Level.WARNING, "[ChatRegex] The option global-cooldown is missing from the entry: " + string + ". Using default value of true");
 			}
 			else {
 				isGlobalCooldown = getConfig().getBoolean("regexs." + string + ".global-cooldown");
+			}
+			
+			if(!getConfig().isSet("regexs." + string + ".global-cooldown")){
+				logger.log(Level.WARNING, "[ChatRegex] The option perm is missing from the entry: " + string + ". Using default value of true");
+			}
+			else {
+				permNode = getConfig().getString("regexs." + string + ".perm");
 			}
 			
 			if(getConfig().isSet("regexs." + string + ".add-nodes")){

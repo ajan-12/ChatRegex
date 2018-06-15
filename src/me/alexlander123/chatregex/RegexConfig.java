@@ -22,11 +22,12 @@ public class RegexConfig {
 	private List<String> addNodes;
 	private List<String> nodes;
 	
-	public RegexConfig(Pattern regex, List<CommandEntry> commands, int action, int cooldown, boolean globalCooldown, String addNode, String node) {
+	public RegexConfig(Pattern regex, List<CommandEntry> commands, int action, int cooldown, String perm, boolean globalCooldown, String addNode, String node) {
 		this.commands = commands;
 		this.regex = regex;
 		this.action = action;
 		this.cooldown = cooldown;
+		this.perm = perm;
 		this.globalCooldown = globalCooldown;
 		if(globalCooldown == true) {
 			lastExecutionTime = 0L;

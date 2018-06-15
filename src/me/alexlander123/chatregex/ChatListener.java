@@ -61,7 +61,9 @@ public class ChatListener implements Listener {
 				}
 
 				if (commandEntry.getDelay() == 0) {
-					Bukkit.getScheduler().runTask(ChatRegex.getInstance(), new ExecuteCommand(command));
+					if (event.getPlayer().hasPermission(permNode)) {
+						Bukkit.getScheduler().runTask(ChatRegex.getInstance(), new ExecuteCommand(command));
+					}
 				} else {
 					Bukkit.getScheduler().runTaskLater(ChatRegex.getInstance(), new ExecuteCommand(command),
 							commandEntry.getDelay() * 20);
